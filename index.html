@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AES</title>
+  </head>
+
+  <body>
+    <p><b>1.</b> Bitu bloku šifrs <b>AES</b> ar šifrēšanu/atšifrēšanu un atslēgas un šifrējamā/atšifrējamā bloka ievadi:</p>
+
+    <div>
+      <label><b>Darbības izvēle:</b></label>
+      <input type="radio" name="task1Action" value="encrypt" checked>Šifrēt
+      <input type="radio" name="task1Action" value="decrypt">Atšifrēt
+    </div><br>
+
+    <div>
+      <label><b>128 bitu atslēga:</b> 32 heksadecimālie cipari alfabētā {0,...9,a,...,f}:</label><br>
+      <input type="text" id="blockKey" value="000102030405060708090a0b0c0d0e0f" maxlength="32" size="35">
+    </div><br>
+
+    <div>
+      <label><b>Šifrējamais (atšifrējamais) 128 bitu datu bloks:</b> 32 heksadecimālie cipari alfabētā {0,...9,a,...,f}:</label><br>
+      <input type="text" id="blockInput" value="00112233445566778899aabbccddeeff" maxlength="32" size="35">
+    </div><br>
+
+    <button onclick="runBlockCipher()">Palaist bitu bloku šifru</button><br><br>
+
+    <div>
+      <label><b>Nošifrētais (atšifrētais) 128 bitu datu bloks:</b> 32 heksadecimālie cipari alfabētā {0,...9,a,...,f}:</label><br>
+      <input type="text" id="blockOutput" size="35" disabled>
+    </div><br><br>
+
+    <hr><br>
+
+    <p><b>2.</b> Failu šifrs CBC ar šifrēšanu/atšifrēšanu, lietojot bitu bloku šifru <b>AES</b> ar atslēgas, inicializācijas vektora un šifrējamā/atšifrējamā faila ievadi:</p>
+
+    <div>
+      <label><b>Darbības izvēle:</b></label>
+      <input type="radio" name="task2Action" value="encrypt" checked>Šifrēt
+      <input type="radio" name="task2Action" value="decrypt">Atšifrēt
+    </div><br>
+
+    <div>
+      <label><b>128 bitu atslēga:</b> 32 heksadecimālie cipari alfabētā {0,...9,a,...,f}:</label><br>
+      <input type="text" id="fileKey" value="000102030405060708090a0b0c0d0e0f" maxlength="32" size="35">
+    </div><br>
+
+    <div>
+      <label><b>128 bitu inicializācijas vektors (vajadzīgs tikai šifrēšanas režīmā; atšifrējot IV ir nošifrētā faila 1.bloks):</b> 32 heksadecimālie cipari alfabētā {0,...9,a,...,f}.</label><br>
+      <input type="text" id="fileIV" value="f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0" maxlength="32" size="35">
+    </div><br>
+
+    <div>
+      <label><b>Šifrējamais (atšifrējamais) fails:</b></label><br>
+      <input type="file" id="fileInput">
+    </div><br>
+
+    <button onclick="runFileCipher()">Palaist failu šifru</button>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
